@@ -1,0 +1,53 @@
+<ng-container>
+  <section class="__main_new_product">
+    <container-component
+      [center]="newProductIsCenter"
+      [width]="newProductWidth"
+      [padding]="newProductPadding"
+    >
+      <span
+        class="__main_new_product_close"
+        (click)="isProductCallBack.emit(false)"
+        >&times;</span
+      >
+      <header class="__main_products_title">Новый товар</header>
+      <hr class="__main_products_line" />
+      <div class="__main_products_operations">
+        <button-component
+          type="add"
+          (click)="addProductValidation()"
+        ></button-component>
+        <button-component
+          type="cancel"
+          (click)="deleteNewProduct()"
+        ></button-component>
+      </div>
+      <hr class="__main_products_line" [ngStyle]="{'margin-bottom': '20px'}" />
+      <form-component
+        [title]="productNameTitle"
+        [placeholder]="productNamePlaceholder"
+        [required]="formService.nameRequired$.value"
+        [requiredText]="formService.nameRequiredText$.value"
+        (inputClick)="emitNameProduct($event.target.value)"
+      ></form-component>
+      <form-component
+        [title]="productCountTitle"
+        [placeholder]="productCountPlaceholder"
+        [required]="formService.countRequired$.value"
+        [requiredText]="formService.countRequiredText$.value"
+        [ngStyle]="{'margin': '20px'}"
+        (inputClick)="emitCountProduct($event.target.value)"
+      ></form-component>
+      <form-component
+        [title]="productPriceTitle"
+        [placeholder]="productPricePlaceholder"
+        [required]="formService.priceRequired$.value"
+        [requiredText]="formService.priceRequiredText$.value"
+        (inputClick)="emitPriceProduct($event.target.value)"
+      ></form-component>
+      <file-component
+        (inputClick)="emitPhotoProduct($event.target.value)"
+      ></file-component>
+    </container-component>
+  </section>
+</ng-container>

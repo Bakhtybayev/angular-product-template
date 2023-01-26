@@ -1,0 +1,20 @@
+<ng-container>
+  <section class="__main_product_page">
+    <div class="__main_product_main_buttons">
+      <input
+        type="checkbox"
+        class="__main_product_checkbox"
+        (click)="handleFilterProducts(id)"
+      />
+      <button class="__main_product_button" (click)="handleFilterAProduct(id)">
+        <img src="../../../../assets/images/product-delete.png" alt="" />
+      </button>
+    </div>
+    <div class="__main_product_info">
+      <span class="__main_product_name">{{ title | titlecase }}</span>
+      <img class="__main_product_image" [src]="image" alt="" />
+    </div>
+    <p class="__main_product_price">{{ price | currency: 'USD'}}</p>
+  </section>
+  <hr class="__main_product_line" />
+</ng-container>

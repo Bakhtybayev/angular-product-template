@@ -1,0 +1,18 @@
+<ng-container>
+  <section class="__main_form">
+    <!-- props title -->
+    <span class="__main_form_title">{{ title }}</span>
+    <div>
+      <input
+        type="text"
+        [ngClass]="
+          required ? '__main_form_input-required' : '__main_form_input'
+        "
+        [placeholder]="placeholder"
+        (input)="inputClick.emit($event)"
+      />
+      <p class="__main_form_required_text">{{ requiredText }}</p>
+    </div>
+    <!-- required text -->
+  </section>
+</ng-container>

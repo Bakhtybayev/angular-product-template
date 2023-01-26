@@ -1,0 +1,162 @@
+<container-component [width]="sidebarWidth" [padding]="sidebarPadding">
+  <section class="__main_sidebar">
+    <div class="__sidebar_clothes">
+      <!-- <span (click)="generalChangeLine('Clothes', '')" class="__sidebar_gt">
+        &gt; -->
+      <!-- </span> -->
+      <img
+        (click)="generalChangeLine('Clothes', '')"
+        [ngClass]="firstDown ? '__sidebar_gt_back' : '__sidebar_gt'"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/1leftarrow_blue.svg/1200px-1leftarrow_blue.svg.png"
+        alt=""
+      />
+      <span class="__sidebar_clothes_ref">Одежда</span>
+      <div
+        *ngIf="
+          sidebarService.isCloseOpen &&
+          !sidebarService.isShoesOpen &&
+          !sidebarService.isOtherOpen
+        "
+        class="__sidebar_clothes_mutant"
+      >
+        <img
+          (click)="generalChangeLine('Clothes', 'Male')"
+          [ngClass]="
+            fourthDown ? '__sidebar_gt_inner_back' : '__sidebar_gt_inner'
+          "
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/1leftarrow_blue.svg/1200px-1leftarrow_blue.svg.png"
+          alt=""
+        />
+        <span class="__sidebar_clothes_inner_ref">Мужская</span>
+        <div
+          *ngIf="sidebarService.isCloseInnerMale"
+          class="__sidebar_clothes_outerwear"
+        >
+          <nav class="__sidebar_clothes_nav">Верхня Одежда</nav>
+          <nav
+            *ngIf="
+              sidebarService.isCloseInnerMaleInLine ||
+              sidebarService.isCloseInnerMaleInLineDefault
+            "
+            class="__sidebar_clothes_nav_line"
+          ></nav>
+        </div>
+      </div>
+      <div *ngIf="sidebarService.isCloseOpen" class="__sidebar_clothes_mutant">
+        <img
+          (click)="generalChangeLine('Clothes', 'Female')"
+          [ngClass]="
+            fifthDown ? '__sidebar_gt_inner_back' : '__sidebar_gt_inner'
+          "
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/1leftarrow_blue.svg/1200px-1leftarrow_blue.svg.png"
+          alt=""
+        />
+        <span class="__sidebar_clothes_ref">Женская</span>
+        <div
+          *ngIf="sidebarService.isCloseInnerFemale"
+          class="__sidebar_clothes_outerwear"
+        >
+          <nav class="__sidebar_clothes_nav">Верхня Одежда</nav>
+          <nav
+            *ngIf="
+              sidebarService.isCloseInnerFemaleInLine ||
+              sidebarService.isCloseInnerFemaleInLineDefault
+            "
+            class="__sidebar_clothes_nav_line"
+          ></nav>
+        </div>
+      </div>
+    </div>
+    <div class="__sidebar_clothes">
+      <img
+        (click)="generalChangeLine('Shoes', '')"
+        [ngClass]="secondDown ? '__sidebar_gt_back' : '__sidebar_gt'"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/1leftarrow_blue.svg/1200px-1leftarrow_blue.svg.png"
+        alt=""
+      />
+      <span class="__sidebar_clothes_ref">Обувь</span>
+      <div
+        *ngIf="
+          sidebarService.isShoesOpen &&
+          !sidebarService.isCloseOpen &&
+          !sidebarService.isOtherOpen
+        "
+        class="__sidebar_clothes_outerwear"
+      >
+        <nav
+          (click)="generalChangeLine('Shoes', 'Male')"
+          class="__sidebar_clothes_nav"
+          [ngStyle]="{ cursor: 'pointer' }"
+        >
+          Мужская
+        </nav>
+        <nav
+          *ngIf="
+            sidebarService.isShoesOpenMale ||
+            sidebarService.isShoesInnerMaleInLineDefault
+          "
+          class="__sidebar_clothes_nav_line"
+        ></nav>
+      </div>
+      <div
+        *ngIf="sidebarService.isShoesOpen"
+        class="__sidebar_clothes_outerwear"
+      >
+        <nav
+          (click)="generalChangeLine('Shoes', 'Female')"
+          class="__sidebar_clothes_nav"
+          [ngStyle]="{ cursor: 'pointer' }"
+        >
+          Женская
+        </nav>
+        <nav
+          *ngIf="sidebarService.isShoesOpenFemale"
+          class="__sidebar_clothes_nav_line"
+        ></nav>
+      </div>
+    </div>
+    <div class="__sidebar_clothes">
+      <img
+        (click)="generalChangeLine('Other', '')"
+        [ngClass]="thirdDown ? '__sidebar_gt_back' : '__sidebar_gt'"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/1leftarrow_blue.svg/1200px-1leftarrow_blue.svg.png"
+        alt=""
+      />
+      <span class="__sidebar_clothes_ref">Другое</span>
+      <div
+        *ngIf="
+          sidebarService.isOtherOpen &&
+          !sidebarService.isCloseOpen &&
+          !sidebarService.isShoesOpen
+        "
+        class="__sidebar_clothes_outerwear"
+      >
+        <nav
+          (click)="generalChangeLine('Other', 'Male')"
+          class="__sidebar_clothes_nav"
+          [ngStyle]="{ cursor: 'pointer' }"
+        >
+          Мужская
+        </nav>
+        <nav
+          *ngIf="
+            sidebarService.isOtherOpenMale ||
+            sidebarService.isOtherInnerMaleInLineDefault
+          "
+          class="__sidebar_clothes_nav_line"
+        ></nav>
+        <nav
+          (click)="generalChangeLine('Other', 'Female')"
+          class="__sidebar_clothes_nav"
+          [ngStyle]="{ cursor: 'pointer' }"
+        >
+          Женская
+        </nav>
+        <nav
+          *ngIf="sidebarService.isOtherOpenFemale"
+          class="__sidebar_clothes_nav_line"
+        ></nav>
+      </div>
+    </div>
+  </section>
+</container-component>

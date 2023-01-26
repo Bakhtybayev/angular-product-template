@@ -1,0 +1,29 @@
+<ng-container>
+  <div class="__pagination-products-block">
+    <div class="__pagination-products-button-boxes">
+      <button
+        class="__pagination-products-button-prev-next"
+        (click)="handleSetCurrentPortion(pagination[0])"
+      >
+        {{'<'}}
+      </button>
+      <button
+        *ngFor="let page of pagination"
+        [name]="page"
+        [disabled]="currentPage === page"
+        (click)="pageChange.emit(page)"
+        [ngClass]="
+      currentPage === page ? '__is-active' : ''"
+        id="__pagination-products-number-boxes"
+      >
+        {{ page }}
+      </button>
+      <button
+        class="__pagination-products-button-prev-next"
+        (click)="handleSetCurrentPortion(pagination.length)"
+      >
+        {{'>'}}
+      </button>
+    </div>
+  </div>
+</ng-container>

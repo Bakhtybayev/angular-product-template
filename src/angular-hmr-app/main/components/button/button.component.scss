@@ -1,0 +1,16 @@
+.__main_button_content {
+  width: 100px;
+  text-align: center;
+  .__main_button {
+    margin-bottom: 5px;
+    cursor: pointer;
+    .__main_button_image {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+  }
+  .__main_button_text {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+}

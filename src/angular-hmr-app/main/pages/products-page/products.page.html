@@ -1,0 +1,223 @@
+<container-component [width]="productsWidth" [padding]="productsPadding">
+  <section>
+    <header class="__main_products_title">
+      <!-- props after -->
+      {{productService.title$.value}}
+    </header>
+    <hr class="__main_products_line" />
+    <div
+      *ngIf="(sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpen &&
+    sidebarService.isCloseInnerMale) || (sidebarService.isCloseOpen &&
+    sidebarService.isCloseInnerFemale) || (sidebarService.isShoesOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isOtherOpen &&
+    !sidebarService.isShoesOpenFemale) || (sidebarService.isShoesOpen &&
+    sidebarService.isShoesOpenFemale &&
+    sidebarService.isShoesOpenFemale) || (sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpenFemale) || (sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    sidebarService.isOtherOpenFemale)"
+      class="__main_products_operations"
+    >
+      <button-component
+        type="add"
+        (click)="handleOpenModal(true)"
+      ></button-component>
+      <button-component
+        type="cancel"
+        (click)="handleFilterTheProducts()"
+      ></button-component>
+    </div>
+    <hr
+      *ngIf="(sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpen &&
+    sidebarService.isCloseInnerMale) || (sidebarService.isCloseOpen &&
+    sidebarService.isCloseInnerFemale) || (sidebarService.isShoesOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isOtherOpen &&
+    !sidebarService.isShoesOpenFemale) || (sidebarService.isShoesOpen &&
+    sidebarService.isShoesOpenFemale &&
+    sidebarService.isShoesOpenFemale) || (sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpenFemale) || (sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    sidebarService.isOtherOpenFemale)"
+      class="__main_products_line"
+    />
+    <!-- 1 -->
+    <ng-container
+      *ngIf="sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpen &&
+    sidebarService.isCloseInnerMale"
+    >
+      <product-page
+        *ngFor="let product of productService.mJackets"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.pageProductsCount < productService.totalProductsCount"
+        [pagesCount]="productService.pagesCount"
+        [currentPage]="productService.currentPage"
+        [totalProductsCount]="productService.totalProductsCount"
+        [pageProductsCount]="productService.pageProductsCount"
+        type="MJackets"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <!-- 2 -->
+    <ng-container
+      *ngIf="sidebarService.isCloseOpen &&
+    sidebarService.isCloseInnerFemale"
+    >
+      <product-page
+        *ngFor="let product of productService.wJackets"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.wPageProductsCount < productService.wTotalProductsCount"
+        [pagesCount]="productService.wPagesCount"
+        [currentPage]="productService.wCurrentPage"
+        [totalProductsCount]="productService.wTotalProductsCount"
+        [pageProductsCount]="productService.wPageProductsCount"
+        type="WJackets"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <!-- 3 -->
+    <ng-container
+      *ngIf="sidebarService.isShoesOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isOtherOpen &&
+    !sidebarService.isShoesOpenFemale"
+    >
+      <product-page
+        *ngFor="let product of productService.mSShoes"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.mSPageProductsCount < productService.mSTotalProductsCount"
+        [pagesCount]="productService.mSPagesCount"
+        [currentPage]="productService.mSCurrentPage"
+        [totalProductsCount]="productService.mSTotalProductsCount"
+        [pageProductsCount]="productService.mSPageProductsCount"
+        type="mShoes"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <!-- 4 -->
+    <ng-container
+      *ngIf="sidebarService.isShoesOpen &&
+    sidebarService.isShoesOpenFemale &&
+    sidebarService.isShoesOpenFemale"
+    >
+      <product-page
+        *ngFor="let product of productService.wSShoes"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.wSPageProductsCount < productService.wSTotalProductsCount"
+        [pagesCount]="productService.wSPagesCount"
+        [currentPage]="productService.wSCurrentPage"
+        [totalProductsCount]="productService.wSTotalProductsCount"
+        [pageProductsCount]="productService.wSPageProductsCount"
+        type="wShoes"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <!-- 5 -->
+    <ng-container
+      *ngIf="sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpenFemale"
+    >
+      <product-page
+        *ngFor="let product of productService.mOOthers"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.mOPageProductsCount < productService.mOTotalProductsCount"
+        [pagesCount]="productService.mOPagesCount"
+        [currentPage]="productService.mOCurrentPage"
+        [totalProductsCount]="productService.mOTotalProductsCount"
+        [pageProductsCount]="productService.mOPageProductsCount"
+        type="mOOthers"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <!-- 6 -->
+    <ng-container
+      *ngIf="sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    sidebarService.isOtherOpenFemale"
+    >
+      <product-page
+        *ngFor="let product of productService.wOOthers"
+        [id]="product.id"
+        [title]="product.title"
+        [image]="product.image"
+        [count]="product.count"
+        [price]="product.price"
+      ></product-page>
+      <pagination-common
+        *ngIf="productService.wOPageProductsCount < productService.wOTotalProductsCount"
+        [pagesCount]="productService.wOPagesCount"
+        [currentPage]="productService.wOCurrentPage"
+        [totalProductsCount]="productService.wOTotalProductsCount"
+        [pageProductsCount]="productService.wOPageProductsCount"
+        type="wOOthers"
+        (pageChange)="handleChangePage($event)"
+      ></pagination-common>
+    </ng-container>
+    <ng-container
+      *ngIf="!(sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpen &&
+    sidebarService.isCloseInnerMale || sidebarService.isCloseOpen &&
+    sidebarService.isCloseInnerFemale || sidebarService.isShoesOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isOtherOpen &&
+    !sidebarService.isShoesOpenFemale || sidebarService.isShoesOpen &&
+    sidebarService.isShoesOpenFemale &&
+    sidebarService.isShoesOpenFemale || sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    !sidebarService.isOtherOpenFemale || sidebarService.isOtherOpen &&
+    !sidebarService.isCloseOpen &&
+    !sidebarService.isShoesOpen &&
+    sidebarService.isOtherOpenFemale)"
+    >
+      <preloader-common></preloader-common>
+    </ng-container>
+  </section>
+</container-component>

@@ -1,0 +1,10 @@
+<ng-container>
+  <section class="__main_file">
+    <!-- props with conditions -->
+    <img [src]="photo" alt="" class="__main_file_image" />
+    <label class="__main_file_input">
+      <span>Загрузить фото</span>
+      <input type="file" (change)="handleGiveFile($event)" />
+    </label>
+  </section>
+</ng-container>

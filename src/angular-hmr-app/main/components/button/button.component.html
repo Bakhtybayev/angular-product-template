@@ -1,0 +1,30 @@
+<ng-container>
+  <section class="__main_button_content">
+    <button class="__main_button">
+      <img
+        class="__main_button_image"
+        [src]="
+          type === 'add'
+            ? '../../../../assets/images/add.png'
+            : type === 'save'
+            ? '../../../../assets/images/message.png'
+            : type === 'cancel'
+            ? '../../../../assets/images/delete.png'
+            : ''
+        "
+        alt=""
+      />
+    </button>
+    <p class="__main_button_text">
+      {{
+        type === "add"
+          ? "Добавить"
+          : type === "save"
+          ? "Сохранить"
+          : type === "cancel"
+          ? "Удалить"
+          : "Отменить"
+      }}
+    </p>
+  </section>
+</ng-container>

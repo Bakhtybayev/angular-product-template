@@ -1,0 +1,13 @@
+<ng-container>
+  <main class="__main">
+    <header-component></header-component>
+    <section class="__main_content">
+      <side-bar-component></side-bar-component>
+      <products-page></products-page>
+    </section>
+    <new-product-page
+      *ngIf="productService.isProduct$.value"
+      (isProductCallBack)="handleOpenModal($event)"
+    ></new-product-page>
+  </main>
+</ng-container>

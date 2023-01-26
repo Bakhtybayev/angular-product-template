@@ -1,0 +1,35 @@
+.__main_form {
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .__main_form_title {
+    width: 180px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .__main_form_required_text {
+    color: red;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 7px;
+  }
+
+  .__main_form_input {
+    outline: none;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+
+    &-required {
+      border: 1px solid red;
+      padding: 5px;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+}

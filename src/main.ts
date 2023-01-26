@@ -1,0 +1,32 @@
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './angular-hmr-app/app.module';
+import { InitialState } from './angular-hmr-app/store/reducer/addProduct.reducer';
+import { environment } from './environments/environment';
+
+import { hmrBootstrap } from './hmr';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+localStorage.setItem('mansJackets', JSON.stringify(InitialState.mansJakets));
+localStorage.setItem('femaleJakets', JSON.stringify(InitialState.femaleJakets));
+localStorage.setItem('mansShoes', JSON.stringify(InitialState.mansShoes));
+localStorage.setItem('femaleShoes', JSON.stringify(InitialState.femaleShoes));
+localStorage.setItem('mansOther', JSON.stringify(InitialState.mansOther));
+localStorage.setItem('femaleOther', JSON.stringify(InitialState.femaleOther));
+
+const bootstrap = () => platformBrowserDynamic().bootstrapModule(AppModule);
+
+if (environment.hmr) {
+  if ((module as any).hot) {
+    hmrBootstrap(module, bootstrap);
+  } else {
+    console.error('HMR is not enabled for webpack-dev-server!');
+    console.log('Are you using the --hmr flag for ng serve?');
+  }
+} else {
+  bootstrap().catch(err => console.log(err));
+}

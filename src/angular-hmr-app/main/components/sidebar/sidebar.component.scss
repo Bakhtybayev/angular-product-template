@@ -1,0 +1,75 @@
+.__main_sidebar {
+
+  .__sidebar_clothes {
+    padding: 8px 0;
+
+    .__sidebar_gt {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .__sidebar_gt:hover {
+      transition-duration: 1s;
+      transform: rotate(0.5turn);
+    }
+
+    .__sidebar_gt_back {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      cursor: pointer;
+      transform: rotate(0.5turn);
+    }
+
+    .__sidebar_clothes_ref {
+      font-size: 18px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .__sidebar_clothes_mutant {
+      margin: 5px 0px;
+
+      .__sidebar_gt_inner {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        cursor: pointer;
+        margin-left: 22px;
+      }
+      .__sidebar_gt_inner:hover {
+        transition-duration: 1s;
+        transform: rotate(0.5turn);
+      }
+
+      .__sidebar_gt_inner_back {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        cursor: pointer;
+        margin-left: 22px;
+        transform: rotate(0.5turn);
+      }
+
+      .__sidebar_clothes_inner_ref {
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+    }
+
+    .__sidebar_clothes_outerwear {
+
+      .__sidebar_clothes_nav {
+        margin: 5px 0 5px 44px;
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      .__sidebar_clothes_nav_line {
+        margin: 5px 0 5px 44px;
+        border: 0.1px solid rgb(37, 35, 35);
+      }
+    }
+  }
+}
