@@ -177,11 +177,15 @@ export class FormService {
   }
 
   handleClearForm(): void {
-    this.nameRequired$.next(false);
-    this.priceRequired$.next(false);
     this.productName$.next('');
     this.productPrice$.next(0);
+    this.productCount$.next(0);
+    this.productPhoto$.next('');
+    this.nameRequired$.next(false);
+    this.priceRequired$.next(false);
+    this.countRequired$.next(false);
     this.nameRequiredText$.next('');
-    this.priceRequiredText$.next('')
+    this.priceRequiredText$.next('');
+    this.countRequiredText$.next('');
   }
 }

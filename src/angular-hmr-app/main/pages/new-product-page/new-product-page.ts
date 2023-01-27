@@ -37,6 +37,7 @@ export class NewProductPage {
   deleteNewProduct(): void {
     this.formService.handleClearForm();
     this.isProductCallBack.emit(false);
+
   }
 
   emitNameProduct(name: string): void {

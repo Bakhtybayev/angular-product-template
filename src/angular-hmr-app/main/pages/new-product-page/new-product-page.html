@@ -5,9 +5,7 @@
       [width]="newProductWidth"
       [padding]="newProductPadding"
     >
-      <span
-        class="__main_new_product_close"
-        (click)="isProductCallBack.emit(false)"
+      <span class="__main_new_product_close" (click)="deleteNewProduct()"
         >&times;</span
       >
       <header class="__main_products_title">Новый товар</header>
